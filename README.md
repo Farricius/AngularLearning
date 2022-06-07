@@ -2,7 +2,7 @@
 
 ![f1](https://i.gyazo.com/1d823feaafe6a06ca321ed7c06154e81.png)
 ![f2](https://i.gyazo.com/3687926055c0ef1d67e59c2448e050b8.png)
-![f3]([http://url/to/img.png](https://i.gyazo.com/71804cebe6dda1322d3ae693a4225aeb.png))
+![f3](https://i.gyazo.com/71804cebe6dda1322d3ae693a4225aeb.png)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
