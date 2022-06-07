@@ -1,0 +1,19 @@
+tr, table, td {
+    padding: 5px;
+}
+
+img {
+    margin-left: 50px;
+}
+
+#search {
+    font-size: 48px;
+}
+
+nav {
+    font-size: 48px;
+}
+
+p, b {
+    font-size: 18px;
+}

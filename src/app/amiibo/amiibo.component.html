@@ -1,0 +1,93 @@
+<br>
+
+<!-- DETALLES PERSONAJE -->
+<div class="row justify-content-center">
+    
+    <div class="container" *ngIf="tail; else noTail">
+        <div class="row justify-content-center" *ngFor="let item of amiibo">
+            <div class="check" *ngIf="item.tail == tail">
+                <br>
+
+                <div class="col-lg-12">
+                <h2><strong>Reference Code:</strong> {{item.tail}}</h2>
+                <br>
+                <div class="col-lg-12">
+                    <img src='{{item.image}}'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Nintendo_Official_Seal.svg/1200px-Nintendo_Official_Seal.svg.png' width = "400px">
+                </div>
+                <br>
+                <br>
+                <p><b>amiibo Series:</b> {{item.amiiboSeries}}</p>
+                <p><b>Character:</b> {{item.character}}</p>
+                <p><b>Game Series:</b> {{item.gameSeries}}</p>
+                <p><b>Full Name:</b> {{item.name}}</p>
+                <p><b>Type Product:</b> {{item.type}}</p>
+                <br>
+                <b><img src = "https://flagicons.lipis.dev/flags/4x3/eu.svg" width = "48px"> Release Europe: {{item.release.eu}}</b>
+                <b><img src = "https://flagicons.lipis.dev/flags/4x3/us.svg" width = "48px"> Release America: {{item.release.na}}:</b>
+                <b><img src = "https://flagicons.lipis.dev/flags/4x3/jp.svg" width = "48px"> Release Japan: {{item.release.jp}}</b>
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="onBack()">BACK TO THE LIST</button>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+ 
+        <ng-template #noTail>
+
+            <!-- BARRA BUSQUEDA -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12 justify-content-center">
+                    <input class="form-control input-lg" id="search" type="text" [(ngModel)]="filtrarAmiibo"
+                        name="filtrarAmiibo" placeholder="Search a character here...">
+                        <br>
+                </div>
+            </div>
+
+
+
+            <table class="col-lg-10 table justify-content-center">
+                <!-- //mx-auto w-auto -->
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nintendo© Product Picture</th>
+                        <th scope="col">Character</th>
+                        <th scope="col">Amiibo Series</th>
+                        <th scope="col">Material</th>
+                        <th scope="col">Action #1</th>
+                        <th scope="col">Action #2</th>
+                    </tr>
+                </thead>
+                <tr class="justify-content-center"
+                    *ngFor="let id = index; let item of amiibo | filterSearch:filtrarAmiibo">
+                    <td scope="col">{{id}}</td>
+                    <td scope="col"> <img style="height:96px;" src='{{item.image}}'> </td>
+                    <td scope="col" class="justify-content-center">{{item.character}}</td>
+                    <td scope="col" class="justify-content-center">{{item.amiiboSeries}}</td>
+                    <td scope="col" class="justify-content-center">{{item.type}}</td>
+                    <td scope="col" class="justify-content-center"><a [routerLink]="['/amiibo/', item.tail]">Info &
+                            Details</a></td>
+                    <!-- <td scope="col" class = "justify-content-center"><a [routerLink]="['/amiibo/', item.tail]">Delete</a></td> -->
+                    <td><input type="button" (click)="borrarFrase(id);" value="Delete"></td>
+                    <!-- <div ng-click="borrarFrase(item.name)">xdddd</div> -->
+
+                </tr>
+            </table>
+        </ng-template>
+</div>
+
+
+
+
+
+
+<!-- <td scope="col"> <img class="justify-content-center" style="height:124px;" src='{{item.image}}'> </td> -->
+
+<!-- for (var i = 0; i < data.amiibo.length; i++) {
+    this.datos.push(data.amiibo[i]);
+  }
+  console.log(this.datos); -->
